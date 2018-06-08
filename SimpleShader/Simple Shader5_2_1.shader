@@ -8,7 +8,8 @@ Shader "Unity Shaders Book/SimpleShader" {
 			#pragma fragment fragment //片元着色器
 
 			float4 vert(float4 v : POSITION) : SV_POSITION{
-				return UnityObjectToClipPos(v);//更改mul(UNITY_MATRIX_MVP,v)为UnityObjectToClipPos(v)
+				return UnityObjectToClipPos(v);//更改mul(UNITY_MATRIX_MVP,v.vertex)为UnityObjectToClipPos(v)
+				//使用v.vertx来访问模型空间的顶点坐标
 			}
 			
 			fixed4 frag() : SV_Target{
